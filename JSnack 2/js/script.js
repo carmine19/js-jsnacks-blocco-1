@@ -6,6 +6,7 @@ let parola2 = prompt('inserisci la seconda parola');
 
 
 
+
 if(parola1.length > parola2.length) {
     document.getElementById('password').innerHTML = parola1
 }else {
