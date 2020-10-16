@@ -1,42 +1,28 @@
-// Crea un array vuoto. 
-
-// Chiedi per 6 volte all’utente di inserire un numero
-
-// se è dispari inseriscilo nell’array.
-
-
+// creo un array vuoto.
 let numeri = [];
 
+// creo una variabile di check in modo che il ciclo finisca se l utente inserisce un carattere
+let check = true;
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 6 && check === true; i++) {
 
+	//chiedo al utente 6 volte i numeri e li pasifico ad interi in modo da non rivecere una stringa
 	let numero = parseInt(prompt('inserisci il primo numero'));
-	numeri.push(numero)
-
-	if (isNaN(numero)) {
-		alert('devi inserire dei numeri');
+	//calcolo il resto del numero se divisibile per 2
+	let resto_numeri = numero % 2;
+	//verifico se l utente ha inserito un numero corretto o qualcosa di diverso
+	if (!isNaN(numero) && numero >= 0) {
+		// se i numeri sono dispari li inserisco nell array
+		if (resto_numeri > 0) {
+			// qui sto effettivamente pushando i numeri nel mio array vuoto, mi ricordo che il compilatore esegue
+			// prima i cili e poi il resto
+			numeri.push(numero);
+			document.getElementById('password').innerHTML = 'i numeri dispari sono ' + numeri;
+		}
 	} else {
-		console.log('numeri corretti');
+		// se l'utente non inserisce un numero glie lo comunico
+		alert('devi inserire dei numeri');
+
 	}
 
 }
-
-let risultato = [];
-
-for (let i = 0; i < numeri.length; i++) {
-
-	let risultato = numeri[i] % 2;
-
-	if (risultato > 0) {
-		document.getElementById('password').innerHTML = 'i numeri dispari sono ' + risultato;
-		console.log('i numeri sono dispari')
-	}
-	else {
-		console.log('i numeri sono pari')
-	}
-
-	console.log(risultato)
-	
-}
-
-
